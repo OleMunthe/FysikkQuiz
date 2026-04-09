@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+a {
+    display: inline-block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+}
+
+/* Progress bar */
+.status {
+    margin-bottom: 20px;
+}
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress {
+    height: 100%;
+    width: 0%;
+    background-color: #060606;
+    transition: width 0.5s ease;
+}
+.teller {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    gap: 20px;
+}
+.box {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    flex: 1;
+}
+
+/* Spørsmål og svar */
+.box p {
+    margin-bottom: 8px;
+}
+#quiz {
+    margin-top: 5px;
+}
+#quiz input[type="radio"] {
+    display: none;
+}
+.svar {
+    display: block;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.svar:hover {
+    background-color: #f0f8ff;
+    border-color: #0077cc;
+}
+.svar.riktig {
+    background-color: #d4edda; /* grønn */
+    border-color: #28a745;
+    color: #155724;
+}
+.svar.feil {
+    background-color: #f8d7da; /* rød */
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#resultat {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+#neste {
+    display: none;
+}
+
+img {
+       max-height: 300px; /* Maks høyde */
+    max-width: 550px; /* Maks bredde*/    
+}
