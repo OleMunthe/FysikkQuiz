@@ -3,24 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flervalgsoppgaver Fysikk 1</title>
+<meta name="theme-color" content="#0877ab">
 
-<!-- MathJax -->
+<title>Flervalgsoppgaver R2</title>
+
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
-<style>
-img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
-}
-</style>
 </head>
-
-
 
 <body>
 
@@ -37,48 +29,42 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>En isklump med masse 200 g tilføres en varme på 500 W.</p>
-        <p>Isklumpen har i utgangspunktet en temperatur på nøyaktig 0 grader celsius.</p>
-        <p>Smeltevarmen til is er 334 kJ/kg.</p>
+        <p>Oppgavetekst...</p>
 
-        <p><strong>Hvor lang tid tar det før isen har smeltet?</strong></p>
+        $$
+        ... 
+        $$
+
+        <p><strong>Hva er riktig svar?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>134 sekunder</span>
+                <span>Riktig svar</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>668 sekunder</span>
+                <span>Feil svar</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>299 sekunder</span>
+                <span>Feil svar</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>29,9 sekunder</span>
+                <span>Feil svar</span>
             </label>
         </form>
 
-        <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-       <div class="box" style="display: grid; place-items: center;">
-        <img src="Smelte.png" alt="En person som slipper en stein" >
-    </div>
 </div>
-
 
 </body>
 </html>

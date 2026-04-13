@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     padding: 20px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -12,9 +13,7 @@ a {
     font-weight: bold;
 }
 
-/* =======================
-   STATUS / PROGRESS
-   ======================= */
+/* STATUS */
 
 .status {
     margin-bottom: 20px;
@@ -40,43 +39,28 @@ a {
     font-weight: bold;
 }
 
-/* =======================
-   LAYOUT
-   ======================= */
+/* LAYOUT */
 
 .container {
     display: flex;
     gap: 20px;
 }
 
-/* Felles stil for begge bokser */
 .box {
     background: white;
     padding: 20px;
     border: 1px solid #ccc;
 }
 
-/* Venstre boks: 7/10 */
 .container .box:first-child {
     flex: 7;
 }
 
-/* Høyre boks: 3/10 */
 .container .box:last-child {
     flex: 3;
 }
 
-/* =======================
-   SPØRSMÅL / SVAR
-   ======================= */
-
-.box p {
-    margin-bottom: 8px;
-}
-
-#quiz {
-    margin-top: 5px;
-}
+/* SVAR */
 
 #quiz input[type="radio"] {
     display: none;
@@ -109,9 +93,13 @@ a {
     color: #721c24;
 }
 
-/* =======================
-   KNAPPER / RESULTAT
-   ======================= */
+/* VISUELL DISABLE */
+
+.svar[style*="pointer-events: none"] {
+    opacity: 0.6;
+}
+
+/* KNAPPER */
 
 button {
     margin-top: 10px;
@@ -120,56 +108,38 @@ button {
     cursor: pointer;
 }
 
-#resultat {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
 #neste {
     display: none;
 }
 
-/* =======================
-   BILDER
-   ======================= */
+/* BILDER */
 
 img {
     max-height: 300px;
     max-width: 550px;
 }
 
-
-/* =======================
-   ADAPTIV MOBIL-LAYOUT
-   ======================= */
+/* MOBIL */
 
 @media (max-width: 768px) {
 
-    /* Stable boksene vertikalt */
     .container {
         flex-direction: column;
     }
 
-    /* Full bredde på begge bokser */
-    .container .box:first-child,
-    .container .box:last-child {
-        flex: none;
+    .container .box {
         width: 100%;
     }
 
-    /* Litt mindre padding på mobil */
     .box {
         padding: 15px;
     }
 
-    /* Mindre mellomrom mellom svar */
     .svar {
         padding: 10px;
         font-size: 16px;
     }
 
-    /* Bilde tilpasses mobil */
     img {
         max-width: 100%;
         height: auto;
