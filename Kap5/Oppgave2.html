@@ -5,13 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0877ab">
 
-<title>Flervalgsoppgaver R2</title>
+<title>Flervalgsoppgaver Fysikk 1</title>
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
+<style>
+img {
+    max-height: 300px;
+    max-width: 450px;
+}
+</style>
 </head>
 
 <body>
@@ -31,39 +37,42 @@
 
 <div class="container">
     <div class="box">
-        <p>Oppgavetekst...</p>
+        <p>To bokser kolliderer i et rett, sentralt støt.</p>
 
-        $$
-        ... 
-        $$
+        <p>Den ene boksen har masse 20 kg og farten 3,0 m/s til høyre før kollisjonen. Etter kollisjonen har den farten 1,0 m/s mot høyre.</p>
 
-        <p><strong>Hva er riktig svar?</strong></p>
+        <p>Den andre boksen har masse 10 kg og farten 2,0 m/s mot venstre før kollisjonen.</p>
+
+        <p><strong>Hva farten til den andre boksen etter kollisjonen?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>Riktig svar</span>
+                <span>2,0 m/s</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>6,0 m/s</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>1,0 m/s</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>1,5 m/s</span>
             </label>
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="KlosseKollisjon.png" alt="">
+    </div>
 </div>
 
 </body>

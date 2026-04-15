@@ -5,13 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0877ab">
 
-<title>Flervalgsoppgaver R2</title>
+<title>Flervalgsoppgaver Fysikk 1</title>
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
 <script src="../FlervalgScript.js" defer></script>
 
+<style>
+img {
+    max-height: 300px;
+    max-width: 450px;
+}
+</style>
 </head>
 
 <body>
@@ -31,39 +37,32 @@
 
 <div class="container">
     <div class="box">
-        <p>Oppgavetekst...</p>
-
-        $$
-        ... 
-        $$
-
-        <p><strong>Hva er riktig svar?</strong></p>
+        <p><strong>Hva er varme?</strong></p>
 
         <form id="quiz">
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>Riktig svar</span>
+                <span>Energi som på grunn av temperaturforskjell går fra et sted til et annet.</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>Den indre kinetiske energien til et system.</span>
             </label>
 
             <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
+                <span>Antall grader celsius eller kelvin til et system.</span>
             </label>
 
-            <label class="svar" tabindex="0">
-                <input type="radio" name="svar" value="feil">
-                <span>Feil svar</span>
-            </label>
         </form>
 
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="VarmeTemperaturFEIL.png" alt="">
+    </div>
 </div>
 
 </body>

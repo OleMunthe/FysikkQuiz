@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0877ab">
+
+<title>Flervalgsoppgaver Fysikk 1</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+    max-height: 300px;
+    max-width: 450px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+<div class="container">
+    <div class="box">
+        <p>Morten og Ole skal ha kappløp opp et 500 m høyt fjell.</p>
+        
+        <p>Morten har masse 75 kg og Ole har masse 100 kg.</p>
+
+        <p>Morten bruker 25 min.</p>
+
+        <p>For å gjøre konkurransen mer rettferdig for Ole, går konkurransen ut på å yte størst mulig effekt.</p>
+
+        <p><strong>Hvor lang tid må Ole bruke for å yte samme effekt som Morten?</strong></p>
+
+        <form id="quiz">
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="riktig">
+                <span>33 min. og 20 sek.</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>33 min. og 33 sek.</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>18 min. og 45 sek.</span>
+            </label>
+
+        </form>
+
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="MO.png" alt="">
+    </div>
+</div>
+
+</body>
+</html>
