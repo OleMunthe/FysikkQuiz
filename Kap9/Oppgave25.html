@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0877ab">
+
+<title>Flervalgsoppgaver Fysikk 1</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+<script src="../FlervalgScript.js" defer></script>
+
+<style>
+img {
+    max-height: 300px;
+    max-width: 450px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+<div class="container">
+    <div class="box">
+<table style="border-collapse: collapse; text-align: center;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid black; padding: 8px;">Atom</th>
+      <th style="border: 1px solid black; padding: 8px;">Masse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">\( ^1_1\text{H} \)</td>
+      <td style="border: 1px solid black; padding: 8px;">\( 1{,}67 \cdot 10^{-27}\,\text{kg} \)</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black; padding: 8px;">\( ^4_2\text{He} \)</td>
+      <td style="border: 1px solid black; padding: 8px;">\( 6{,}64 \cdot 10^{-27}\,\text{kg} \)</td>
+    </tr>
+  </tbody>
+</table>
+
+        <p>En viktig rekasjon i sola er \(  4 \text{}^1_1\text{H} \rightarrow 2e + \text{ }^4_2\text{He} \).</p>
+
+        <p><strong>Hvordan regner vi ut energifrigjøringen i én slik reaksjon?</strong></p>
+
+        <form id="quiz">
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="riktig">
+                <span>\(  \left( 4 \cdot 1{,}67  - 6{,}64  \right) \cdot 10^{-27}\,\text{kg}\cdot c^2\)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  \left( 4 \cdot 1{,}67 + 6{,}64 \right)\cdot 10^{-27}\,\text{kg} \cdot c^2\)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  \left( 1{,}67  - 6{,}64  \right)\cdot 10^{-27}\,\text{kg} \cdot c^2\)</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>\(  \left( 1{,}67  + 6{,}64 \right)\cdot 10^{-27}\,\text{kg} \cdot c^2\)</span>
+            </label>
+        </form>
+
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="4HHe.png" alt="">
+    </div>
+</div>
+
+</body>
+</html>

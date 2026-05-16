@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Newtons lover</title>
+
+  <!-- MathJax -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.6;
+      background-color: #fafafa;
+    }
+
+    h1, h2, h3 {
+      margin-top: 2em;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1em auto;
+    }
+
+    /* ---------- BOKSER ---------- */
+
+    /* Definisjon */
+    .definition {
+      background-color: #ecfeff;
+      border-left: 6px solid #0891b2;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 8px;
+    }
+
+    .definition h3::before {
+      content: "📘 ";
+    }
+
+    /* Eksempel */
+    .example {
+      background-color: #ecfdf5;
+      border: 2px solid #10b981;
+      border-left-width: 6px;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 10px;
+    }
+
+    .example h3 {
+      margin-top: 0;
+      color: #065f46;
+    }
+
+    .example h3::before {
+      content: "📌 ";
+    }
+
+    .solution {
+      background-color: #ffffff;
+      border: 1px dashed #34d399;
+      padding: 1em;
+      margin-top: 1em;
+      border-radius: 6px;
+    }
+
+    /* Merk */
+    .note {
+      background-color: #fff7ed;
+      border-left: 6px solid #f59e0b;
+      padding: 1.2em 1.5em;
+      margin: 2em 0;
+      border-radius: 8px;
+    }
+
+    .note strong::before {
+      content: "⚠️ ";
+    }
+
+    /* Programkode */
+    .codebox {
+      background-color: #0f172a;
+      color: #e5e7eb;
+      padding: 1.5em;
+      border-radius: 10px;
+      margin: 2em 0;
+      overflow-x: auto;
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    .codebox::before {
+      content: "💻 Programkode";
+      display: block;
+      color: #34d399;
+      margin-bottom: 0.8em;
+      font-weight: bold;
+    }
+
+    /* ===========================
+   Mobiltilpasning
+   =========================== */
+
+@media (max-width: 700px) {
+
+  body {
+    padding: 1em;
+    font-size: 1rem;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Bokser: mindre padding på mobil */
+  .example,
+  .definition,
+  .note,
+  .codebox {
+    padding: 1em;
+    margin: 1.5em 0;
+  }
+
+  /* Bilder: litt større på mobil */
+  img {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  /* Programkode: lettere å lese */
+  .codebox {
+    font-size: 0.9rem;
+  }
+
+}
+
+/* ===== Skriv til PDF-knapp ===== */
+
+.print-button {
+  display: block;
+  margin: 1.5em auto;
+  padding: 0.6em 1.4em;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.print-button:hover {
+  background-color: #059669;
+}
+
+/* Skjul knappen på mobil */
+@media (max-width: 700px) {
+  .print-button {
+    display: none;
+  }
+}
+
+@media print {
+  .print-button {
+    display: none;
+  }
+}
+
+
+/* ===========================
+   PDF / Utskrift
+   =========================== */
+
+@media print {
+
+  /* Generelle marger for A4 */
+  body {
+    margin: 1.5cm;
+    background: white;
+  }
+
+  /* Overskrifter starter på ny side */
+  h1,
+  h2 {
+    page-break-before: always;
+  }
+
+  /* Aldri del disse boksene over sider */
+  .definition,
+  .example,
+  .note,
+  .codebox {
+    page-break-inside: avoid;
+  }
+
+  /* Tillat at løsninger deles om nødvendig */
+  .solution {
+    page-break-inside: auto;
+  }
+
+  /* Bilder bør heller flyttes enn å deles */
+  img {
+    page-break-inside: avoid;
+  }
+
+  /* PDF skal ikke vise knappen */
+  .print-button {
+    display: none !important;
+  }
+}
+@media print {
+  .no-print {
+    display: none;
+  }
+}
+  </style>
+</head>
+
+<body>
+<a href="../index.html" class="no-print">← Tilbake til hovedsiden</a>
+<button class="print-button" onclick="window.print()">
+  🖨️ Skriv til PDF
+</button>
+
+
+<main>
+  <h1>Newtons lover og krefter</h1>
+
+  <p>Du skal ha kompetanse om</p>
+  <ul>
+    <li>Newtons 1. lov \(\Sigma F = 0 \Leftrightarrow v = \text{konstant}\)</li>
+    <li>Newtons 2. lov \(\Sigma \vec{F} = m\vec{a}\)</li>
+    <li>Newtons 3. lov \(\vec{F} = -\vec{F}^{*}\)</li>
+    <li>tyngdekraften \(G = mg\)</li>
+    <li>friksjonskraft \(R = \mu N\)</li>
+    <li>programmering for å gjøre numeriske beregninger med krefter og rettlinjet bevegelse</li>
+  </ul>
+
+  <section>
+    <h2>Newtons 1. og 2. lov</h2>
+
+    <p><strong>Newtons 1. lov:</strong> \(\Sigma F = 0 \Leftrightarrow v = \text{konstant}\)<br>
+    Et legeme er i ro eller i konstant fart dersom summen av kreftene \(\Sigma F\) som virker på det er null.</p>
+
+    <p><strong>Newtons 2. lov:</strong> \(\Sigma \vec{F} = m\vec{a}\)<br>
+    Summen av kreftene \(\Sigma F\) som virker på et objekt er proporsjonal med akselerasjonen til objektet. Proporsjonalitetskonstanten er massen til objektet.</p>
+
+      <div class="note">
+      <strong>Merk</strong>:
+      Newtons 1. lov kan sees på som et spesialtilfelle av Newtons 2. lov, når \(a = 0\). 
+    </div>
+
+
+
+    <div class="example">
+      <h3>Eksempel</h3>
+
+      <figure>
+        <img src="KasseDytt2.png" alt="Kasser som dyttes" style="width: 60%;">
+      </figure>
+
+      <p>Hvor stor akselerasjon har hver av boksene?</p>
+
+      <div class="solution">
+        \[
+        a_1 = \frac{\Sigma F}{m_1}
+        =
+        \frac{30}{20}
+        =
+        1\text{,}5 \text{ m/s}^2
+       \;\;\;\;\;\;
+        a_2 = \frac{\Sigma F}{m_2}
+        =
+        \frac{30}{10}
+        =
+        2\text{,}0 \text{ m/s}^2
+        \]
+      </div>
+    </div>
+
+    <div class="example">
+      <h3>Eksempel</h3>
+
+      <p>Bestem akselerasjonen til boksene over hvis det virker en friksjonskraft 10 N fra gulvet på hver av boksene.</p>
+
+      <div class="solution">
+        <p>Summen av kreftene på hver kasse er nå \(\Sigma F = 30 - 10 = 20\text{ N}\).</p>
+
+        \[
+        a_1 = \frac{\Sigma F}{m_1}
+        =
+        \frac{20}{20}
+        =
+        1\text{,}0 \text{ m/s}^2
+        \;\;\; \text{ og } \;\;\;
+        a_2 = \frac{\Sigma F}{m_2}
+        =
+        \frac{20}{10}
+        =
+        2\text{,}0 \text{ m/s}^2
+        \]
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Merk:</strong> Måleenheten for kraft heter Newton, og er gitt ved \( \text{N} = \text{kg m/s}^2 \).
+    </div>
+
+    <div class="note">
+      <strong>Merk:</strong>
+      Vi tegner en kraft som en pil, som kalles en <em>vektor</em>, som starter der kraften angriper legemet. Hvis vi har flere krefter, skal lengdene av vektorene vise størrelsesforholdet mellom kreftene.
+    </div>
+  </section>
+
+
+
+
+  <section>
+    <h2>Newtons 3. lov og tyngdekraft</h2>
+
+    <p><strong>Newtons 3. lov:</strong> \(\vec{F} = -\vec{F}^{*}\)<br>
+      En kraft virker alltid mellom to legemer A og B. Når det virker en kraft \(F\) fra A på B,
+      virker det alltid en like stor, men motsatt rettet kraft \(-F^{*}\) fra B på A.
+    </p>
+
+  <p><strong>Tyngdekraft:</strong> \(G = mg\) <br>
+  Tyngdekraften trekker alle ting mot sentrum av jorda. I fritt fall, uten luftmotstand, er tyngdekraften så stor at akselersjonen er lik tyngdeakselerasjonen \(g = 9\text{,}81 \text{ m/s}^2 \).
+  </p>
+
+  <div class="example">
+      <h3>Eksempel</h3>
+
+      <p>Et eple henger i ro  fra en gren.</p>
+
+      <p>Beskriv kreftene og motkreftene som virker på et eplet.</p>
+
+      <div class="solution">
+      <img src="N3.png" alt="Krefter på eple" style="width: 60%;">
+      Det virker to krefter på eplet: 
+      <ul>
+        <li>Tyngdekraften \(G\), som prøver å trekke eplet nedover</li>
+        <li>En kraft \(S\) fra grenen som holder det oppe</li>
+      </ul>
+        
+      Motkreftene:
+      <ul>
+        <li>Motkraften til \(G\) er en kraft \(G^*\) som prøver å trekke bakken oppover</li>
+        <li>Motkraften til \(S\) er en kraft \(S^*\) som prøver å trekke grenen nedover</li>
+      </ul>
+      </div>
+    </div>
+
+
+
+    <div class="example">
+      <h3>Eksempel</h3>
+
+      <p>En boks med masse 20 kg ligger i ro på et horisontalt gulv.</p>
+      <p>Bestem kreftene som virker på boksen.</p>
+
+      <div class="solution">
+        <p>Tyngdekraften er</p>
+
+        \[
+        G = mg = 20 \cdot 10 = 200 \text{ N}
+        \]
+
+        <p>Normalkraften \(N\), kraften normalt \(90^\circ\) opp fra gulvet på boksen, må være like stor som tyngdekraften.</p>
+
+        <figure>
+          <img src="boksro.png" alt="Boks i ro" style="width: 25%;">
+        </figure>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>Merk:</strong>
+     I eksempelet over er IKKE kreftene \(G\) og \(N\) motkrefter!
+    </div>
+
+    <div class="example">
+      <h3>Eksempel</h3>
+
+      <p>En boks med masse 20 kg ligger i en heis. Heisen akselererer oppover med en akselerasjon på 2,0 m/s\(^2\).</p>
+      <p>Bestem kreftene som virker på boksen.</p>
+
+      <div class="solution">
+        <p>Tyngdekraften er \(G = mg = 20 \cdot 10 = 200 \text{ N}\).</p>
+
+        <p>Summen av kreftene er  \(\Sigma F = ma = 20 \cdot 2,0 = 40 \text{ N}\), så normalkraften må være \(240 \text{ N}\).</p>
+        
+          <img src="boksheis.png" alt="Boks i heis" style="width: 37%;">
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <section>
+    <h2>Friksjonskraft</h2>
+
+    <p>
+      Friksjonskraften på et legeme er
+      \[
+      R = \mu N
+      \]
+      hvor \(\mu\) kalles friksjonstallet, eller glidefriksjonstallet, og er forskjellig mellom ulike legemer.
+    </p>
+
+    <p>
+      Når et legeme ligger i ro, har vi et annet friksjonstall enn <em>glidefriksjonstallet</em>. Dette friksjonstallet er større enn glidefriksjonstallet.
+    </p>
+
+<div class="example">
+      <h3>Eksempel</h3>
+
+      <p>
+      Vi trekker en kloss med masse 125 g bortover et horisontalt gulv. Klossen ligger først i ro, før vi øker kraften gradvis helt til klossen begynner å bevege seg med en konstant fart.</p>
+
+      <p>
+      Ved hjelp av en kraftmåler lager vi en graf som viser kraften vi trekker med som funksjon av tid:
+      </p>
+
+      <img src="sfriksjon.png" alt="Friksjonskraft på boks" style="width: 67%;">
+
+      <p>Bestem friksjonstallet mellom klossen og underlaget.</p>
+
+      <div class="solution">
+        Vi ser at friksjonskraften er ca. 0,25 N. Dette gir
+        \[ R = \mu \cdot N \;\;\; \rightarrow \;\;\; \mu = \frac{R}{N} = \frac{R}{mg} = \frac{0\text{,}25}{0\text{,}125 \cdot 10} = 0\text{,}20  \]
+      </div>
+    </div>
+
+
+    <div class="example">
+      <h3>Eksempel</h3>
+
+      <p>
+        En kasse med masse 20 kg blir dyttet med en kraft 300 N.
+        Friksjonstallet mellom kassa og underlaget er \(\mu = 0\text{,}25\).
+      </p>
+
+      <p>Bestem akselerasjonen til kassa.</p>
+
+      <div class="solution">
+        <p>Tyngdekraften er</p>
+
+        \[
+        G = mg = 20 \cdot 10 = 200 \text{ N}
+        \]
+
+        <p>Normalkraften er like stor som tyngdekraften, siden kassa ikke beveger seg i vertikal retning.</p>
+
+        <p>Friksjonskraften er</p>
+
+        \[
+        R = \mu N = 0\text{,}25 \cdot 200 = 50 \text{ N}
+        \]
+
+        Vi kan tegne en figur som viser kreftene:
+          <img src="Friksjon.png" alt="Friksjonskraft på boks" style="width: 50%;">
+ 
+        Her ser vi at summen av kreftene gir følgende akselerasjon:
+
+        \[
+        a = \frac{\Sigma F}{m}
+        =
+        \frac{300 - 50}{20}
+        =
+        \frac{250}{20}
+        =
+        12\text{,}5 \text{ m/s}^2
+        \]
+      </div>
+    </div>
+  </section>
+
+
+
+<section>
+<h2>Numeriske beregninger og luftmotstand</h2>
+
+<p>Luftmotstanden \(L\), kraften lufta bremser et legeme med, er med god tilnærming gitt ved</p>
+
+\[   L = k \cdot v^2 \text{ (når \(v\) > }3\text{ m/s)} \;\;\;\;\;,\;\;\;\;  L = k \cdot v \text{ (når \(v\) < }3\text{ m/s)} \]
+
+<p>hvor \(k\) er en konstant som avhenger av formen og størrelsen til legemet.</p>
+
+<p>Siden luftmotstanden gjør at akselerasjonen ikke er konstant, må vi ofte programmere når vi regner med luftmotstand. Nedenfor er standardkoden vi bruker til dette.</p>
+
+<pre class="codebox"><code>s, v, t = ..., ..., ... # Legg inn startverdier for strekning, fart og tid
+dt = 0.001
+
+while ...: # Legg inn betingelse for hvor lenge koden skal kjøres
+    a = ... # Legg inn uttrykket for akselerasjon
+    v = v + a*dt
+    s = s + v*dt
+    t = t + dt
+
+print(t, s, v, a)</code></pre>
+
+
+
+
+<div class="example">
+      <h3>Eksempel</h3>
+
+      <p>
+        En stein og en muffinsform blir sluppet samtidig 1,75 m over gulvet. Ved hjelp av <a href="https://opensourcephysics.github.io/tracker-website/">Tracker</a> måler vi høyden som funksjon av tid etter at de er sluppet.
+        Grafen viser resultatet av målingene:
+      </p>
+      <img src="steinMuffins.png" alt=" " style="width: 50%;">
+
+      <p>Massen til muffinsformen er 100 g.</p>
+      
+      <p>Lag et uttrykk for luftmotstanden på muffinsformen.</p>
+
+      <div class="solution">
+        Farten er lav, så vi bruker \(L = k \cdot v\). <br><br>
+
+        For å bestemme \(k\) bruker vi at muffinsformel etter ca. 0,60 s har fått en tilnærmet konstant fart, en såkalt <em>terminalfart</em> \(v_\text{T}\), som er gitt ved
+        \[ v_\text{T} = \frac{s}{t} = \frac{0\text{,}25 - 0\text{,}75}{0\text{,}80 - 0\text{,}60} = -2\text{,}5 \text{ m/s}\]
+
+        Dette betyr at luftmotstanden er like stor som gravitasjonskraften når farten er 2,5 m/s, noe som gir
+        \[ kv_\text{T} = mg \;\;\; \rightarrow \;\;\;  k = \frac{mg}{v_\text{T}} = \frac{0\text{,}100 \cdot 9\text{,}81}{2\text{,}5} = 0\text{,}39 \]
+
+        Dermed er en modell for luftmotstanden
+        \[  L = 0\text{,}39 \cdot v \]
+      </div>
+    </div>
+
+    Hvis vi vil teste modellen i eksempelet over kan vi legge inn luftmotstanden i en programkode og se om resultatet stemmer med grafen:
+    
+    <pre class="codebox"><code>h, v, t = 1.75, 0, 0 # Startverdier for strekning, fart og tid
+dt = 0.001
+
+while h > 0: # Så lenge muffinsformen er i lufta
+    a = -9.81 - 0.39*v/0.100 # Akselerasjonen, fra Newtons 2. lov
+    v = v + a*dt
+    h = h + v*dt
+    t = t + dt
+
+print(t, h, v, a)</code></pre>
+
+Programmet skriver ut at muffinsformen bruker 0,95 sekunder, noe som stemmer ganske bra, men er litt lang tid; 
+For å forbedre modellen kan vi tilpasse \(k\)-verdien slik at tiden blir 0,87 sekunder, som ser ut til å stemme med grafen.<br><br>
+
+Vi kan også lage et program som lager en graf:
+<pre class="codebox"><code>from pylab import *
+
+h, v, t = [1.75], [0], [0] # Lister [...] for strekning, fart og tid
+dt = 0.001
+
+while h[-1] > 0: # Så lenge den siste høydeverdien er over null:
+    a = -9.81 - 0.39*v[-1]/0.100 # Akselerasjonen, fra Newtons 2. lov
+    v.append(v[-1] + a*dt) # Legger til ("append") en verdi i lista med fart
+    h.append(h[-1] + v[-1]*dt) # Legger til ("append") en verdi i lista med høyde
+    t.append(t[-1] + dt) # Legger til ("append") en verdi i lista med tid
+
+plot(t, h) # Plotter tid på x-aksen og høyden på y-aksen</code></pre>
+
+
+Programmet gir denne grafen:
+ <img src="Muffinsgraf.png" alt=" " style="width: 50%;">
+
+
+    <div class="note">
+      <strong>Merk:</strong><br>
+    I programmet lager vi lister, f.eks. h = [1.75].<br>
+    Listene blir utvidet med nye verdier med h.append(...)<br>
+    h[-1] henter ut den siste verdien som ble lagt inn i lista. <br>
+    plot(t, h) lager en graf med alle verdiene fra t- og h-lista.
+    </div>
+
+
+</section>
+
+
+
+
+</main>
+
+</body>
+</html>
