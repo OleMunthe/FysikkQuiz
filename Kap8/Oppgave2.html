@@ -3,24 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0877ab">
+
 <title>Flervalgsoppgaver Fysikk 1</title>
 
-<!-- MathJax -->
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <link rel="stylesheet" href="../FlervalgsStyle.css">
-
 <script src="../FlervalgScript.js" defer></script>
 
 <style>
 img {
-       max-height: 300px; /* Maks høyde */
-    max-width: 550px; /* Maks bredde*/    
+    max-height: 300px;
+    max-width: 450px;
 }
 </style>
 </head>
-
-
 
 <body>
 
@@ -37,46 +35,46 @@ img {
     </div>
 </div>
 
-
-
-
-
-
-
 <div class="container">
     <div class="box">
-        <p>Figuren illustrerer hva som skjer når vi sender hvitt lys gjennom en hydrogengass.</p>
-        
-        <p><strong>Hva kan skje hvis vi istedenfor å sende hvitt lys gjennom gassen, skyter elektroner inn i gassen?</strong></p>
+        <p>Bildet viser utviklingen av atommodellen.</p>
+
+        <p><strong>Hvilken modell viser Bohr sin atommodell?</strong></p>
 
         <form id="quiz">
-            <label class="svar">
-                <input type="radio" name="svar" value="feil">
-                <span>Vi kan få både et emisjons- og absorpsjonsspekter, akkurat som når vi sender hvitt lys gjennom.</span>
-            </label>
-            <label class="svar">
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="riktig">
-                <span>Vi kan bare få et emisjonsspekter, med de samme fargene som når vi sender hvitt lys.</span>
+                <span>modellen nest lengst til høyre</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Vi kan bare få et absorpsjonsspekter, med de samme fargene som når vi sender hvitt lys.</span>
+                <span>modellen lengst til høyre</span>
             </label>
-            <label class="svar">
+
+            <label class="svar" tabindex="0">
                 <input type="radio" name="svar" value="feil">
-                <span>Vi kan få et absorpsjonsspekter, men med ulike farger enn det vi får når vi sender hvitt lys.</span>
+                <span>modellen i midten</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>modellen nest lengst til venstre</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>modellen lengst til venstre</span>
             </label>
         </form>
 
-        <div id="resultat"></div>
         <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
     </div>
 
-    <div class="box">
-        <img src="EmoAbso.png" alt="En person som slipper en stein" >
+    <div class="box" style="display: grid; place-items: center;">
+        <img src="TidslinjeOppgave.png" alt="">
     </div>
 </div>
-
 
 </body>
 </html>

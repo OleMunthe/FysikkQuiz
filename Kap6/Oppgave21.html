@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0877ab">
+
+<title>Flervalgsoppgaver Fysikk 1</title>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<link rel="stylesheet" href="../FlervalgsStyle.css">
+<script src="../FlervalgScript.js" defer></script>
+
+</head>
+
+<body>
+
+<a href="../index.html">← Tilbake til hovedsiden</a>
+
+<div class="status">
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    <div class="teller">
+        Riktig: <span id="riktig">0</span> |
+        Feil: <span id="feil">0</span> |
+        Score: <span id="prosent">0</span>%
+    </div>
+</div>
+
+<div class="container">
+    <div class="box">
+        <p>En ballong har volum 1,0 liter når den ligger inne i stua, hvor det er \(20^{\circ}\text{C}\).</p>
+
+        <p>Ballongen legges ut på balkongen, hvor det er \(10^{\circ}\text{C}\).</p>
+
+        <p><strong>Hvor stort volum får ballongen når den har ligget der en stund?</strong>
+        <br>(Vi antar at den ikke mister luft)
+        </p>
+
+        <form id="quiz">
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="riktig">
+                <span>Den blir litt mindre, men den holder seg større enn 0,50 liter.</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>Den blir 0,50 liter.</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>Den blir 2,0 liter.</span>
+            </label>
+
+            <label class="svar" tabindex="0">
+                <input type="radio" name="svar" value="feil">
+                <span>Den blir større, men ikke så stor som 2,0 liter.</span>
+            </label>
+        </form>
+
+        <button id="neste" onclick="nesteSporsmal()">Neste spørsmål</button>
+    </div>
+
+</div>
+
+</body>
+</html>
