@@ -262,14 +262,19 @@
       Newtons 1. lov kan sees på som et spesialtilfelle av Newtons 2. lov, når \(a = 0\). 
     </div>
 
+  <div class="note">
+      <strong>Merk:</strong> Måleenheten for kraft heter Newton, og er gitt ved \( \text{N} = \text{kg m/s}^2 \).
+    </div>
 
+    <div class="note">
+      <strong>Merk:</strong>
+      Vi tegner en kraft som en pil, som kalles en <em>vektor</em>, som starter der kraften angriper legemet. Hvis vi har flere krefter, skal lengdene av vektorene vise størrelsesforholdet mellom kreftene.
+    </div>
 
     <div class="example">
       <h3>Eksempel</h3>
 
-      <figure>
         <img src="KasseDytt2.png" alt="Kasser som dyttes" style="width: 60%;">
-      </figure>
 
       <p>Hvor stor akselerasjon har hver av boksene?</p>
 
@@ -314,14 +319,7 @@
       </div>
     </div>
 
-    <div class="note">
-      <strong>Merk:</strong> Måleenheten for kraft heter Newton, og er gitt ved \( \text{N} = \text{kg m/s}^2 \).
-    </div>
-
-    <div class="note">
-      <strong>Merk:</strong>
-      Vi tegner en kraft som en pil, som kalles en <em>vektor</em>, som starter der kraften angriper legemet. Hvis vi har flere krefter, skal lengdene av vektorene vise størrelsesforholdet mellom kreftene.
-    </div>
+  
   </section>
 
 
@@ -405,6 +403,56 @@
 
       </div>
     </div>
+
+
+    <div class="example">
+      <h3>Eksempel</h3>
+      Tre kasser ligger i ro oppå hverandre slik figuren viser.
+       <img src="3kasser.png" alt="3 kasser" style="width: 20%;">
+      Bestem kreftene som virker på den midterste kassa.
+
+      <div class="solution">
+        <img src="3kasserLøsning.png" alt="3 kasser" style="width: 17%;">
+        Tyngdekraften er
+        \[  G = mg = 10 \cdot 10 = 100 \text{ N} \]
+      Det virker også en kraft \(F_1\) nedover fra den øverste boksen. Dette er motkraften til normalkraften som virker på den øverste kassa,
+    som må være like stor som gravitasjonskraften på den øverste kassa, siden den ligger i ro. Størrelsen til denne kraften er
+    \[  F_1 = G_{\text{øverste kasse}} =  mg = 5\text{,}0 \cdot 10 = 50 \text{ N} \]
+       Siden kassene ligger i ro, må normalkraften fra den nederste kassa være like stor, men motsatt rettet, av kreftene som virker nedover;
+       \[  N = F_1 + mg = 50 + 10 \cdot 10 = 150 \text{ N} \]
+ 
+      </div>
+    </div>
+
+
+
+    <div class="example">
+      <h3>Eksempel</h3>
+       <img src="Togsett.png" alt="Togsett" style="width: 30%;">
+     
+       Et togsett består av et lokomotiv med masse 20 000 kg og to vogner, hver med masse 5000 kg. <br><br>
+
+       I oppstartsfasen akselererer togsettet med \(5\text{,}0 \text{ m/s}^2\).<br><br>
+
+       Tegn og beregn kreftene som virker på den midterste vogna.
+
+      <div class="solution">
+        Siden toget ikke beveger seg i vertikal retning, så gir Newtons lover at tyngdekraften og normalkraften er like store, og gitt ved 
+        \[  N = G = mg = 5000 \cdot 10 = 50 \text{ kN} \]
+        Den midterste vogna blir dratt framover av lokomotivet og bakover av den bakerste vogna.<br><br>
+
+        Siden akselerasjonen er \(5\text{,}0 \text{ m/s}^2\), så er summen av kreftene på både den bakerste og den midterste vogna
+        \[ \Sigma F = ma = 5000 \cdot 5\text{,}0 = 25 \text{ kN}  \]
+        Newtons 3. lov gir at den midterste vogna da blir dratt bakover med en kraft \(B = 25 \text{ kN}\).<br><br>
+
+        Newtons 2. lov gir at trekk-kraften \(T\) som virker på den midterste vogna fra lokomotivet da er
+        \[  \Sigma F = T - B \;\;\; \Rightarrow \;\;\; T = \Sigma F + B = ma + B = 5000 \cdot 5\text{,}0 + 25\,000 = 50 \text{ kN}  \]
+        
+        <img src="Togkreft.png" alt="Togsett" style="width: 42%;">
+      </div>
+    </div>
+
+
   </section>
 
 
@@ -484,7 +532,7 @@
         =
         \frac{250}{20}
         =
-        12\text{,}5 \text{ m/s}^2
+        12\text{,}5 \text{ m/s}^2 = 13 \text{ m/s}^2
         \]
       </div>
     </div>
@@ -561,31 +609,24 @@ Programmet skriver ut at muffinsformen bruker 0,95 sekunder, noe som stemmer gan
 For å forbedre modellen kan vi tilpasse \(k\)-verdien slik at tiden blir 0,87 sekunder, som ser ut til å stemme med grafen.<br><br>
 
 Vi kan også lage et program som lager en graf:
-<pre class="codebox"><code>from pylab import *
+<pre class="codebox"><code>from pylab import * # Importerer muligheten til å lage graf
 
-h, v, t = [1.75], [0], [0] # Lister [...] for strekning, fart og tid
+h, v, t = 1.75, 0, 0 # Startverdier for strekning, fart og tid
+x, y = [ ], [ ]
 dt = 0.001
 
-while h[-1] > 0: # Så lenge den siste høydeverdien er over null:
-    a = -9.81 - 0.39*v[-1]/0.100 # Akselerasjonen, fra Newtons 2. lov
-    v.append(v[-1] + a*dt) # Legger til ("append") en verdi i lista med fart
-    h.append(h[-1] + v[-1]*dt) # Legger til ("append") en verdi i lista med høyde
-    t.append(t[-1] + dt) # Legger til ("append") en verdi i lista med tid
+while h > 0: # Så lenge muffinsformen er i lufta
+    a = -9.81 - 0.39*v/0.100 # Akselerasjonen, fra Newtons 2. lov
+    v = v + a*dt
+    h = h + v*dt
+    t = t + dt
+    x.append(t) # Legger t-verdien inn i x-lista
+    y.append(h) # Legger h-verdien inn i x-lista
 
-plot(t, h) # Plotter tid på x-aksen og høyden på y-aksen</code></pre>
+xlabel('Tid (s)'); ylabel('Høyde (m)')
+plot(x, y) # Plotter tid på x-aksen og høyden på y-aksen</code></pre>
 
-
-Programmet gir denne grafen:
  <img src="Muffinsgraf.png" alt=" " style="width: 50%;">
-
-
-    <div class="note">
-      <strong>Merk:</strong><br>
-    I programmet lager vi lister, f.eks. h = [1.75].<br>
-    Listene blir utvidet med nye verdier med h.append(...)<br>
-    h[-1] henter ut den siste verdien som ble lagt inn i lista. <br>
-    plot(t, h) lager en graf med alle verdiene fra t- og h-lista.
-    </div>
 
 
 </section>

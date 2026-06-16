@@ -370,7 +370,7 @@ Bestem effekten i motstanden i forrige eksempel.
 <div class="solution">
 \[  P = U \cdot I = 12 \cdot 2\text{,}0 = 24 \text{ W}  \]
 <p>
-Dette betyr at motstanden bruker 24 joule per sekund (som går over til varme).
+Dette betyr at motstanden bruker 24 joule per sekund.
   </p>
 </div>
 </div>
@@ -380,7 +380,7 @@ Dette betyr at motstanden bruker 24 joule per sekund (som går over til varme).
 
 <img src="serieparallell.png" style="width: 42%;">
 
-<p><strong>Kirchhoffs 1. lov:</strong> Summen av strømmer inn i et punkt er lik summen av strømmer ut.</p>
+<p><strong>Kirchhoffs 1. lov:</strong> Summen av strømmer inn i et punkt er lik summen av strømmene ut av punktet.</p>
 
 <p><strong>Kirchhoffs 2. lov:</strong> Summen av spenningene i en lukket sløyfe er null. </p>
 
@@ -402,8 +402,8 @@ I seriekoblingen går den samme strømmen gjennom begge komponentene, og vi kan 
 
 Kirchhoffs 1. lov gir at strømmen i den andre kretsen fordeler seg slik at \(I_{\text{total}} = I_1 + I_2\).
 <img src="kircen.png" style="width: 27%;">
-Kirchhoffs 2. lov gir at spenningsfallet over hver av motstandene er det samme som polspenningen, noe som gir
-\[  U = R \cdot I \;\;\; \rightarrow \;\;\; I_1 = \frac{U_1}{R_1} = \frac{12}{10} = 1\text{,}2 \text{ A} \;\;\text{og}\;\;I_2 = \frac{U_2}{R_2} = \frac{12}{20} = 0\text{,}60 \text{ A} \]
+Kirchhoffs 2. lov gir at spenningsfallet over hver av motstandene er det samme som polspenningen. Ohm's lov \(U = RI\) gir da
+\[ I_1 = \frac{U_1}{R_1} = \frac{12}{10} = 1\text{,}2 \text{ A} \;\;\text{og}\;\;I_2 = \frac{U_2}{R_2} = \frac{12}{20} = 0\text{,}60 \text{ A} \]
 
 </div>
 </div>
@@ -432,12 +432,14 @@ I eksempelet over går det dobbelt så mye strøm gjennom den minste motstanden,
 Bestem effekten batteriet leverer.
 </p>
 <div class="solution">
-Den ytterste grenen av parallellkoblingen består av en seriekobling med to komponenter, som vi kan tenke på som én komponent, slik:
-<img src="super2.png" style="width: 27%;">
-Vi kan også tenke på hele parallellkoblingen som én motstand, slik:
+Den ytterste grenen av parallellkoblingen består av en seriekobling med to komponenter, som vi kan tenke på som én komponent med total resistans \(10 + 20 = 30 \;\Omega \).
+Vi kan også tenke på hele parallellkoblingen som én motstand, slik at den totale kretser blir slik:
 <img src="super3.png" style="width: 27%;">
 hvor den totale resistansen i parallellkoblingen er gitt ved
-\[  R_{\text{parallell}} = \left( \frac{1}{10} + \frac{1}{30} \right)^{-1} = \left( \frac{3}{30} + \frac{1}{30} \right)^{-1} = \left( \frac{4}{30} \right)^{-1} = \frac{30}{4} = 7\text{,}5 \,\Omega \]
+\begin{align}
+R_{\text{parallell}} &= \left( \frac{1}{10} + \frac{1}{10 +20} \right)^{-1} \\
+&= \left( \frac{3}{30} + \frac{1}{30} \right)^{-1} = \left( \frac{4}{30} \right)^{-1} = \frac{30}{4} = 7\text{,}5 \,\Omega
+\end{align}
 <br>
 Strømstyrken ut av batteriet er
 \[  I = \frac{U}{R} = \frac{60}{10 + 7\text{,}5} = \frac{60}{17\text{,}5} = 3\text{,}4 \, \Omega \]
@@ -445,6 +447,61 @@ som gir effekten
 \[  P = U \cdot I = 60 \cdot 3\text{,}4 = 204 \text{ W} \]
 </div>
 </div>
+
+
+</section>
+
+<section>
+<h2>Kobling av elektriske kretser</h2>
+Når vi kobler kretser på LAB'en bruker vi 
+ <ul>
+  <li>batteri (eller spenningskilde, som fungerer som et batteri)</li>
+  <li>ledninger</li>
+  <li>motstander (f.eks. lyspærer)</li>
+  <li>amperemeter (for å måle strøm)</li>
+  <li>voltmeter (for å måle spenning)</li>
+</ul>
+Typiske LAB-oppgaver knyttet til elektrisitet kan være å koble sammen en krets, beregne strøm og spenning, og sammenligne beregningene med målinger.
+
+<div class="note">
+<strong>Merk:</strong> Strømstyrken måles med et \(\textit{amperemeter}\). Dette "teller" elektroner, og kobles derfor i serie der vi vil måle strømmen.
+Motstanden i amperemeteret er (tilnærmet) null. <br><br>
+
+Spenningsfall måles med et \(\textit{voltmeter}\). Dette måler energitapet per ladning over en motstand, og det kobles i parallell over/rundt motstanden. Motstanden i voltmeteret er (tilnærmet) uendelig stor,
+slik at ikke det går noe strøm gjennom voltmeteret.
+</div>
+
+<div class="example">
+<h3>Eksempel</h3>
+<img src="KobleEks.png" style="width: 38%;">
+<p>
+Koble kretsen og mål spenningen og strømmen. Sammenlign målingene med teoretiske verdier.
+</p>
+<div class="solution">
+<img src="KobleLøsn.png" style="width: 52%;">
+<p>
+Den totale teoretiske resistansen i kretsen er
+\[  R = 3 + \left( \frac{1}{2} + \frac{1}{2} \right)^{-1} = 3 + 1^{-1} = 3 + 1 = 4 \; \Omega \]
+Den totale teoretiske strømmen i kretsen er
+\[ I = \frac{U}{R} = \frac{12}{4} = 3 \text{ A} \]
+Siden lyspærene har like stor motstand og er koblet i parallell, fordeler strømmen seg likt gjennom dem. Dermed skal amperemeteret vise 1,5 A.
+Fra Ohm's lov får vi da at spenningsfallet over pæra er
+\( U = RI = 2 \cdot 1,5 = 3 \text{ V} \).
+</p>
+<p>
+<strong>Sammenligninger mellom teori og praksis:</strong> 
+ <ul>
+  <li>Amperemeteret viser 1,3 A. Teoretisk strøm er 1,5 A.</li>
+  <li>Voltmeteret viser 2,3 V. Teoretisk spenningsfall er 3 V.</li>
+</ul>
+Begge målingene er lavere enn de teoretiske verdiene.
+Avvikene kan komme av resistans i ledningene (som vi ikke har tatt hensyn til) og/eller feilkalibrering av måleutstyret, spenningskilden eller motstandene.
+</p>
+
+
+</div>
+</div>
+
 
 
 </section>

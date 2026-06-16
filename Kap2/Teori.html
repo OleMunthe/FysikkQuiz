@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
-  <title>Følger og rekker</title>
+  <title>Bevegelseslikningene</title>
 
   <!-- MathJax -->
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -325,7 +325,7 @@
 
              <div class="example">
         <h3>Eksempel</h3>
-        <p>Grafen viser sammenhengen mellom tid og strekning til en fallskjermhopper (før han løser ut fallskjermen).</p>
+        <p>Grafen viser sammenhengen mellom tid og fart til en fallskjermhopper (før han løser ut fallskjermen).</p>
         
         <img src="fallskjerm.png" alt="Racerbil" style="width: 52%;">
 
@@ -388,7 +388,9 @@
       </p>
 
       <div class="note">
-<strong>Merk:</strong>  Tyngdeakselerasjonen avhenger av massen til jorda, og avstanden til sentrum av jorda. 
+<strong>Merk:</strong>  Vi bruker symbolet \(g\) for tyngdeakselerasjonen, altså \(g = 9\text{,}81 \text{ m/s}^2 \approx 10 \text{ m/s}^2\).
+
+<br><br>Tyngdeakselerasjonen avhenger av massen til jorda, og avstanden til sentrum av jorda. 
 Jorda er ikke en perfekt kule med homogen massefordeling, så egentlig er ikke tyngdeakselerasjonen \(9\text{,}81 \text{ m/s}^2\)overalt på jordoverflaten. 
 Likevel bruker vi \(9\text{,}81 \text{ m/s}^2\) som en standard, eller \(10 \text{ m/s}^2\) når vi ikke har kalkulator.
 </div>
@@ -441,7 +443,7 @@ Likevel bruker vi \(9\text{,}81 \text{ m/s}^2\) som en standard, eller \(10 \tex
 
       <p>
         Når akselerasjonen ikke er konstant bruker vi programmering; Vi deler opp bevegelsen i små tidsintervall \(\Delta t\),
-        og bruker vi at farten \(v\) og akselerasjonen \(a\) <em>tilnærmet</em> (nesten) er konstant i løpet av dette tidsintervallet, slik at vi kan bruke
+        og bruker at farten \(v\) og akselerasjonen \(a\) <em>tilnærmet</em> (nesten) er konstant i løpet av dette tidsintervallet, slik at vi kan bruke
       </p>
       \[  \Delta v = a \cdot \Delta t \;\;\;\; \text{ og } \;\;\;\; \Delta s = v \cdot \Delta t  \]
 
@@ -495,6 +497,34 @@ print(t, v)</code></pre>
         <strong>Merk:</strong>  Programkoden over er «standardkoden» vi bruker for bevegelse med ikke-konstant
           akselerasjon. Linjene med kommentarer på må tilpasses til oppgaven du gjør.
       </div>
+  
+    Vi kan også lage et program som lager en graf:
+<pre class="codebox"><code>from pylab import* # Importerer muligheten til å lage graf
+
+s, v, t = 0, 0, 0 # Startverdier for strekning, fart og tid
+x, y = [ ], [ ] # Lister for å lage graf
+dt = 0.001
+
+while s < 5: # Så lenge strekningen er under 5 meter
+    a = 9.81 - 0.07*v**2 # Uttrykket for akselerasjon
+    v = v + a*dt
+    s = s + v*dt
+    t = t + dt
+    x.append(t) # Legger inn t-verdien i x-lista
+    y.append(v) # Legger inn v-verdien i y-lista
+
+xlabel('Tid (s)'); ylabel('Fart (m/s)')
+plot(x, y)</code></pre>
+
+ <img src="fallskjerm3.png" alt=" " style="width: 50%;">
+
+
+    <div class="note">
+      <strong>Merk:</strong><br>
+    I programmet lager vi lister,  x, y = [], [].<br>
+    Listene blir utvidet med nye verdier (x.append(t) og y.append(v)).<br>
+    plot(x, y) lager en graf med alle verdiene fra x- og y-lista.
+    </div>
     </section>
   </main>
 
